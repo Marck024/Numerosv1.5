@@ -36,18 +36,21 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         btnVer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                float n = Float.parseFloat(numero.getText().toString());
-                String n2 = numero.getText().toString();
+                //float n = Float.parseFloat(numero.getText().toString());
+                //String n2 = numero.getText().toString();
+
                 //logica de negocio***
 
                 tts.setLanguage(new Locale("spa","ESP"));
-                hablar(vista.getText().toString());
+                if(vista.getText().toString()!=null){
+                    hablar(vista.getText().toString());
+                }
             }
 
         });
 
         //boton de limpiar
-        btnLimpiar=(Button)findViewById(R.id.button2);
+        btnLimpiar=(Button)findViewById(R.id.button3);
         btnLimpiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         });
 
         //boton de salida
-        btnSalir=(Button)findViewById(R.id.button3);
+        btnSalir=(Button)findViewById(R.id.button2);
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         tts.speak(s,TextToSpeech.QUEUE_FLUSH,null);
         tts.setSpeechRate(0.0f);
         tts.setPitch(0.0f);
+        Toast.makeText(MainActivity.this,s,Toast.LENGTH_SHORT).show();
     }
 
     @Override
