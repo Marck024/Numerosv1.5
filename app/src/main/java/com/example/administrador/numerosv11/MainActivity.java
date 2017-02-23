@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
 
     private TextToSpeech tts;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
